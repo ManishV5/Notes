@@ -16,4 +16,8 @@ def after_request(response):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
+    if request.method == "POST":
+        return
+
+    else:
+        return render_template("index.html")
