@@ -1,7 +1,5 @@
-import os
 
 from flask import Flask, flash, render_template, request
-
 from helpers import lookup
 
 app = Flask(__name__)
