@@ -1,6 +1,7 @@
 
 from flask import Flask, flash, render_template, request
-from helpers import lookup
+from .helpers import lookup
+
 
 app = Flask(__name__)
 
@@ -22,7 +23,9 @@ def index():
     if request.method == "POST":
         if not request.form.get("query"):
             return render_template("index.html")
+        query = request.form.get("query")
         result = lookup(query)
+        return render_template("result.html", result=result)
 
 
     else:
