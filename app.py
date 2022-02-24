@@ -1,6 +1,6 @@
-
+import requests
+import urllib.parse
 from flask import Flask, flash, render_template, request
-from .helpers import lookup
 
 
 app = Flask(__name__)
@@ -21,8 +21,8 @@ def after_request(response):
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        if not request.form.get("query"):
-            return render_template("index.html")
+        #if not request.form.get("query"):
+         #   return render_template("index.html")
         query = request.form.get("query")
         result = lookup(query)
         return render_template("result.html", result=result)
@@ -30,3 +30,22 @@ def index():
 
     else:
         return render_template("index.html")
+
+def lookup(query):
+
+    # Contact Google API
+
+    try:
+        #api_key = os.environ.get("API_KEY")
+        url = f"https://www.googleapis.com/books/v1/volumes?q={urllib.parse.quote_plus(query)}"
+        response = requests.get(url)
+        response.raise_for_status()
+    except requests.RequestException:
+        return None
+
+    # Parsing response
+    try:
+        result = response.json()
+        return
+    except (KeyError, TypeError, ValueError):
+        return None
