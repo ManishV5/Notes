@@ -2,5 +2,8 @@
 
 {% block main %}
     Something::::::
-    Total Items: {{result["totalItems"]}}
+    Total Items: {{result["total"]}}
+    {% for i in result %}
+        {{}}
+    {% endfor %}
 {% endblock %}
