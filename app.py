@@ -2,6 +2,8 @@ import os
 
 from flask import Flask, flash, render_template, request
 
+from helpers import lookup
+
 app = Flask(__name__)
 
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -17,7 +19,9 @@ def after_request(response):
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        return
+        if not request.form.get("query"):
+            return render_template("index.html")
+        result = lookup(query)
 
     else:
         return render_template("index.html")
