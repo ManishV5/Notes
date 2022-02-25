@@ -16,7 +16,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 
-#db = SQL("sqlite:///notes.db")
+db = SQL("sqlite:///notes.db")
 
 
 @app.after_request
