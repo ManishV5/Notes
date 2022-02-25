@@ -1,10 +1,15 @@
-# BookFinder
+# Notes
 #### Video Demo:  <URL HERE>
 #### Description:
 TODO
 
-    Create Landing Page
+    Reformat code
 
-    Add Google Books API
+    Basic structure:
+        login
+        logout
+        All
+        Add
+        Create
 
-    Test and Submit
+    Publish
