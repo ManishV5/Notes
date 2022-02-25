@@ -28,8 +28,9 @@ def after_request(response):
 
 
 @app.route("/", methods=["GET", "POST"])
+@login_required
 def index():
-    return
+    return apology("TODO")
 
 
 @app.route("/login", methods=["GET","POST"])
@@ -84,13 +85,12 @@ def logout():
     return redirect("/")
 
 
-@app.route("/notes")
-@login_required
-def notes():
-    return
 
-
-@app.route("/new")
+@app.route("/new", methods=["GET","POST"])
 @login_required
 def new():
-    return
+    if request.method == "POST":
+        return apology("TODO")
+
+    else:
+        return render_template("new.html")
