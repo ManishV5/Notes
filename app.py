@@ -4,7 +4,7 @@ from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 
 #from tempfile import mkdtemp
-from helpers import login_required
+from helpers import login_required, apology
 
 
 app = Flask(__name__)
@@ -37,7 +37,19 @@ def login():
     session.clear()
 
     if request.method == "POST":
-        return
+        if not request.form.get("username"):
+            return apology("must provide username")
+
+        elif not request.form.get("password"):
+            return apology("must provide password")
+
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+
+        if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
+            return apology("invalid username and/or password")
+
+        session["user_id"] = rows[0]["user_id"]
+        return redirect("/")
 
     else:
         return render_template("login.html")
@@ -46,11 +58,25 @@ def login():
 @app.route("/register", methods=["GET","POST"])
 def register():
     if request.method == "POST":
-        return
+        if not request.form.get("username"):
+            return apology("must provide username")
+        elif not request.form.get("password"):
+            return apology("must provide password")
+        elif request.form.get("password") != request.form.get("confirmation"):
+            return apology("password != confirmation")
 
+        username = request.form.get("username")
+        password = request.form.get("password")
+        hash = generate_password_hash(password)
+        r = db.execute("SELECT * FROM users WHERE username = ?", username)
+        if len(r) == 0:
+            db.execute("INSERT INTO users(username, hash) VALUES(?, ?)", username, hash)
+        else:
+            return apology("username already exists")
+        flash("You were Registered !")
+        return redirect("/login")
     else:
         return render_template("register.html")
-
 
 @app.route("/logout")
 def logout():
