@@ -90,7 +90,24 @@ def logout():
 @login_required
 def new():
     if request.method == "POST":
-        return apology("TODO")
+        if not request.form.get("label"):
+            return apology("Field label can not be empty")
+
+        if not request.form.get("title"):
+            return apology("Note must have a title")
+
+        if not request.form.get("description"):
+            return apology("note must have a description")
+
+        user_id = session["user_id"]
+        title = request.form.get("title")
+        description = request.form.get("description")
+        label = request.form.get("label")
+        db.execute("INSERT INTO notes(user_id, title, description, label) VALUES (?, ?, ?, ?)", user_id, title, description, label)
+        row = db.execute("SELECT note_id FROM notes WHERE user_id = ? AND title = ? and label = ? AND description = ?", user_id, title, label, description)
+        note_id = row[0]["note_id"]
+        db.execute("INSERT INTO timeline(note_id, user_id) VALUES(?, ?)", note_id, user_id)
+        return redirect("/")
 
     else:
         return render_template("new.html")
