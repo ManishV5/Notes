@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    All Notes
+{% endblock %}
+
+{% block main %}
+<div class="row">
+        {% for i in rows %}
+        <div class="column">
+            <div class="card">
+                <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">{{i["label"]}}</div>
+                <div class="card-body text-dark">
+                    <h5 class="card-title">{{i["title"]}}</h5>
+                    <p class="card-text">{{i["description"]}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+</div>
+{% endblock %}

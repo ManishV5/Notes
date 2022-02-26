@@ -6,5 +6,25 @@
 
 {% block main %}
 <div>
+        <table class="table">
+    <thead>
+        <tr>
+        <th scope="col">Label</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in rows %}
+            <tr>
+                <th scope="row">{{ i["label"] }}</th>
+                <td>{{ i["title"] }}</td>
+                <td>{{ i["description"] }}</td>
+                <td>{{ i["time"] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
 </div>
 {% endblock %}

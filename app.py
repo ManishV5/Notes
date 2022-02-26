@@ -29,7 +29,7 @@ def after_request(response):
 
 @app.route("/", methods=["GET", "POST"])
 @login_required
-def index():
+def search():
     return apology("TODO")
 
 
@@ -118,3 +118,10 @@ def history():
     user_id = session["user_id"]
     rows = db.execute("SELECT label, title, description, time FROM notes, TIMELINE WHERE notes.note_id = TIMELINE.note_id AND notes.user_id = ?",user_id)
     return render_template("history.html", rows=rows)
+
+@app.route("/all")
+@login_required
+def index():
+    user_id = session["user_id"]
+    rows = db.execute("SELECT label, title, description FROM notes WHERE user_id = ?", user_id)
+    return render_template("all.html", rows=rows)
