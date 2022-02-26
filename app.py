@@ -111,3 +111,10 @@ def new():
 
     else:
         return render_template("new.html")
+
+@app.route("/history")
+@login_required
+def history():
+    user_id = session["user_id"]
+    rows = db.execute("SELECT label, title, description, time FROM notes, TIMELINE WHERE notes.note_id = TIMELINE.note_id AND notes.user_id = ?",user_id)
+    return render_template("history.html", rows=rows)
