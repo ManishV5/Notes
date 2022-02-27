@@ -116,7 +116,7 @@ def new():
 @login_required
 def history():
     user_id = session["user_id"]
-    rows = db.execute("SELECT label, title, time, modification FROM notes, TIMELINE WHERE notes.note_id = TIMELINE.note_id AND notes.user_id = ?",user_id)
+    rows = db.execute("SELECT label, title, time, modification FROM notes, timeline WHERE notes.note_id = TIMELINE.note_id AND notes.user_id = ?",user_id)
     return render_template("history.html", rows=rows)
 
 @app.route("/all")
@@ -131,6 +131,14 @@ def index():
 def delete():
     user_id = session["user_id"]
     title = request.form.get("title")
-    db.execute
     db.execute("DELETE FROM notes WHERE user_id = ? AND title = ?", user_id, title)
     return redirect("/all")
+
+@app.route("/edit", methods=["GET","POST"])
+@login_required
+def edit():
+    if request.method = "POST":
+        return apology("TODO")
+
+    else:
+        return render_template("edit.html")

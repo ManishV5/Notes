@@ -20,6 +20,12 @@
           <td>{{ i["title"] }}</td>
           <td>{{ i["description"] }}</td>
           <td>
+            <form action="/edit" method="post">
+              <input name="title" type="hidden" value="{{i.title}}">
+              <input type="submit" value="Edit">
+            </form>
+          </td>
+          <td>
             <form action="/delete" method="post">
               <input name="title" type="hidden" value="{{i.title}}">
               <input type="submit" value="Delete">
