@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 nav .navbar-brand
@@ -10,7 +11,3 @@ nav .navbar-brand
     font-size: xx-large;
 }
 
-.grid-item
-{
-     width: 200px;
-}
