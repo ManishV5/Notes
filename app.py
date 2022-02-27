@@ -106,7 +106,7 @@ def new():
         db.execute("INSERT INTO notes(user_id, title, description, label) VALUES (?, ?, ?, ?)", user_id, title, description, label)
         row = db.execute("SELECT note_id FROM notes WHERE user_id = ? AND title = ? and label = ? AND description = ?", user_id, title, label, description)
         note_id = row[0]["note_id"]
-        db.execute("INSERT INTO timeline(note_id, user_id) VALUES(?, ?)", note_id, user_id)
+        db.execute("INSERT INTO timeline(note_id, user_id, modification) VALUES(?, ?, ?)", note_id, user_id, "added")
         return redirect("/")
 
     else:
@@ -116,7 +116,7 @@ def new():
 @login_required
 def history():
     user_id = session["user_id"]
-    rows = db.execute("SELECT label, title, description, time FROM notes, TIMELINE WHERE notes.note_id = TIMELINE.note_id AND notes.user_id = ?",user_id)
+    rows = db.execute("SELECT label, title, time, modification FROM notes, TIMELINE WHERE notes.note_id = TIMELINE.note_id AND notes.user_id = ?",user_id)
     return render_template("history.html", rows=rows)
 
 @app.route("/all")
@@ -125,3 +125,12 @@ def index():
     user_id = session["user_id"]
     rows = db.execute("SELECT label, title, description FROM notes WHERE user_id = ?", user_id)
     return render_template("all.html", rows=rows)
+
+@app.route("/delete", methods=["POST"])
+@login_required
+def delete():
+    user_id = session["user_id"]
+    title = request.form.get("title")
+    db.execute
+    db.execute("DELETE FROM notes WHERE user_id = ? AND title = ?", user_id, title)
+    return redirect("/all")

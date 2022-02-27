@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.72.0">
+<title>Starter Template · Bootstrap</title>
+
+
+
+<!-- Bootstrap core CSS -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/docs.css" rel="stylesheet">
+
+<style>
+.bd-placeholder-img {font-size: 1.125rem;text-anchor: middle;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
+
+@media (min-width: 768px) {.bd-placeholder-img-lg {font-size: 3.5rem;}}
+</style>
+
+
+<!-- Custom styles for this template -->
+<link href="starter-template.css" rel="stylesheet">
+
+</head>
+<body">
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<div class="container-fluid">
+<a class="navbar-brand" href="#">ナビゲーションバー</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+<ul class="navbar-nav mr-auto mb-2 mb-md-0">
+<li class="nav-item active">
+<!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+<a class="nav-link" href="#">ホーム <span class="sr-only">（現在位置）</span></a>
+</li>
+<li class="nav-item">
+<!-- <a class="nav-link" href="#">Link</a> -->
+<a class="nav-link" href="#">リンク</a>
+</li>
+<li class="nav-item">
+<!-- <a class="nav-link disabled" href="#">Disabled</a> -->
+<a class="nav-link disabled" href="#">無効</a>
+</li>
+<li class="nav-item dropdown">
+<!-- <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a> -->
+<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-expanded="false">ドロップダウン</a>
+<div class="dropdown-menu" aria-labelledby="dropdown01">
+<!-- <a class="dropdown-item" href="#">Action</a> -->
+<a class="dropdown-item" href="#">アクション</a>
+<!-- <a class="dropdown-item" href="#">Another action</a> -->
+<a class="dropdown-item" href="#">その他のアクション</a>
+<!-- <a class="dropdown-item" href="#">Something else here</a> -->
+<a class="dropdown-item" href="#">その他</a>
+</div>
+</li>
+</ul>
+<form class="d-flex">
+<input class="form-control mr-2" type="text" placeholder="検索" aria-label="Search">
+<button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+</div>
+</div>
+</nav>
+
+<main class="container">
+
+<div class="starter-template text-center py-5 px-3">
+<h1>Bootstrap starter template</h1>
+<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+</div>
+
+<div class="bd-example">
+<div class="container py-5">
+<h1>Bootstrap and Masonry</h1>
+<p class="lead">Integrate <a href="https://masonry.desandro.com/">Masonry</a> with the Bootstrap grid system and cards component.</p>
+
+<p>Masonry is not included in Bootstrap. Add it by including the JavaScript plugin manually, or using a CDN like so:</p>
+
+<pre><code>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+</code></pre>
+
+<p>By adding <code>data-masonry='{"percentPosition": true }'</code> to the <code>.row</code> wrapper, we can combine the powers of Bootstrap's responsive grid and Masonry's positioning.</p>
+
+<hr class="my-5">
+
+<div class="row" data-masonry='{"percentPosition": true }'>
+<div class="col-sm-6 col-lg-4 mb-4">
+<div class="card">
+<svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+
+<div class="card-body">
+<h5 class="card-title">Card title that wraps to a new line</h5>
+<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+</div>
+</div>
+</div>
+<div class="col-sm-6 col-lg-4 mb-4">
+<div class="card p-3">
+<figure class="p-3 mb-0">
+<blockquote class="blockquote">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+</blockquote>
+<figcaption class="blockquote-footer mb-0 text-muted">
+Someone famous in <cite title="Source Title">Source Title</cite>
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="col-sm-6 col-lg-4 mb-4">
+<div class="card">
+<svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+
+<div class="card-body">
+<h5 class="card-title">Card title</h5>
+<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+</div>
+</div>
+</div>
+<div class="col-sm-6 col-lg-4 mb-4">
+<div class="card bg-primary text-white text-center p-3">
+<figure class="mb-0">
+<blockquote class="blockquote">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
+</blockquote>
+<figcaption class="blockquote-footer mb-0 text-white">
+Someone famous in <cite title="Source Title">Source Title</cite>
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="col-sm-6 col-lg-4 mb-4">
+<div class="card text-center">
+<div class="card-body">
+<h5 class="card-title">Card title</h5>
+<p class="card-text">This card has a regular title and short paragraph of text below it.</p>
+<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+</div>
+</div>
+</div>
+<div class="col-sm-6 col-lg-4 mb-4">
+<div class="card">
+<svg class="bd-placeholder-img card-img" width="100%" height="260" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Card image" preserveAspectRatio="xMidYMid slice" role="img" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Card image</text></svg>
+
+</div>
+</div>
+<div class="col-sm-6 col-lg-4 mb-4">
+<div class="card p-3 text-right">
+<figure class="mb-0">
+<blockquote class="blockquote">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+</blockquote>
+<figcaption class="blockquote-footer mb-0 text-muted">
+Someone famous in <cite title="Source Title">Source Title</cite>
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="col-sm-6 col-lg-4 mb-4">
+<div class="card">
+<div class="card-body">
+<h5 class="card-title">Card title</h5>
+<p class="card-text">This is another card with title and supporting text below. This card has some additional content to make it slightly taller overall.</p>
+<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+</main><!-- /.container -->
+
+<!-- Optional JavaScript -->
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script src="../js/masonry.pkgd.min.js"></script>
+
+</body>
+</html>

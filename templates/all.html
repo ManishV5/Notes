@@ -5,18 +5,29 @@
 {% endblock %}
 
 {% block main %}
-<div class="row">
-        {% for i in rows %}
-        <div class="column">
-            <div class="card">
-                <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-header">{{i["label"]}}</div>
-                <div class="card-body text-dark">
-                    <h5 class="card-title">{{i["title"]}}</h5>
-                    <p class="card-text">{{i["description"]}}</p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-</div>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Label</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for i in rows %}
+        <tr>
+          <th scope="row">{{ i["label"] }}</th>
+          <td>{{ i["title"] }}</td>
+          <td>{{ i["description"] }}</td>
+          <td>
+            <form action="/delete" method="post">
+              <input name="title" type="hidden" value="{{i.title}}">
+              <input type="submit" value="Delete">
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
+
