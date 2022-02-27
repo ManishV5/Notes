@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit
+{% endblock %}
+
+{% block main %}
+    <form action="/edit" method="post">
+        <div class="mb-3">
+            <select class="form-select mx-auto w-auto"name="old-title">
+                <option disabled selected>Title</option>
+                {% for t in titles %}
+                <option value="{{ t['title'] }}">{{t["title"]}}</option>
+                {% endfor %}
+            </select>
+        </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Label</span>
+                </div>
+                <input type="text" class="form-control" placeholder="New label" id="new-label" name="new-label">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon2">Title</span>
+                </div>
+                <input type="text" class="form-control" placeholder="New title" name="new-title" id="new-title">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Description</span>
+                </div>
+                <textarea class="form-control" placeholder="New description ..." id="new-description" name="new-description"></textarea>
+            </div>
+            <div class="mt-5 text-center">
+                <button class="btn btn-primary" type="submit">Save</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

@@ -137,8 +137,31 @@ def delete():
 @app.route("/edit", methods=["GET","POST"])
 @login_required
 def edit():
-    if request.method = "POST":
-        return apology("TODO")
+    user_id = session["user_id"]
+    if request.method == "POST":
+        if not request.form.get("old-title"):
+            return apology("Can only edit a pre-exisiting note")
+
+        if not request.form.get("new-label"):
+            return apology("Field label can not be empty")
+
+        if not request.form.get("new-title"):
+            return apology("Note must have a title")
+
+        if not request.form.get("new-description"):
+            return apology("note must have a description")
+
+        old_title = request.form.get("old-title")
+        new_title = request.form.get("new-title")
+        new_description = request.form.get("new-description")
+        new_label = request.form.get("new-label")
+
+        row = db.execute("SELECT note_id FROM notes WHERE user_id = ? AND title = ?", user_id, old_title)
+        note_id = row[0]["note_id"]
+        db.execute("UPDATE notes SET title = ?, label = ?, description = ? WHERE note_id = ? AND user_id = ?", new_title, new_label, new_description, note_id, user_id)
+        db.execute("INSERT INTO timeline(note_id, user_id, modification) VALUES (?, ?, ?)", note_id, user_id, "edited")
+        return redirect("/")
 
     else:
-        return render_template("edit.html")
+        titles = db.execute("SELECT title FROM notes WHERE user_id = ?", user_id)
+        return render_template("edit.html", titles=titles)
