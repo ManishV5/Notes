@@ -30,7 +30,15 @@ def after_request(response):
 @app.route("/", methods=["GET", "POST"])
 @login_required
 def search():
-    return apology("TODO")
+    if request.method == "POST":
+        user_id = session["user_id"]
+        query = request.form.get("query")
+        query = f"%{query}%"
+        result = db.execute("SELECT label, title, description FROM notes WHERE user_id = ? AND description LIKE ?", user_id, query)
+        return render_template("search_result.html", result=result)
+
+    else:
+        return render_template("search.html")
 
 
 @app.route("/login", methods=["GET","POST"])

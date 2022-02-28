@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="column mx-auto my-5">
+            <form action="/" method="post">
+                <div class="input-group">
+                    <input type="search" class="form-control" placeholder="Query" id="query" name="query" autofocus="on">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="column mx-auto mt-5">
+            {% block result %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}
