@@ -173,3 +173,11 @@ def edit():
     else:
         titles = db.execute("SELECT title FROM notes WHERE user_id = ?", user_id)
         return render_template("edit.html", titles=titles)
+
+@app.route("/password", methods=["GET","POST"])
+@login_required
+def change():
+    if request.method == "POST":
+        return apology("TODO")
+    else:
+        return apology("change_password.html")
