@@ -58,6 +58,7 @@ def login():
             return apology("invalid username and/or password")
 
         session["user_id"] = rows[0]["user_id"]
+        flash("You are now logged In !")
         return redirect("/")
 
     else:
@@ -83,6 +84,7 @@ def register():
         else:
             return apology("username already exists")
         flash("You were Registered !")
+        flash("Registration Successful !")
         return redirect("/login")
     else:
         return render_template("register.html")
@@ -140,6 +142,7 @@ def delete():
     user_id = session["user_id"]
     title = request.form.get("title")
     db.execute("DELETE FROM notes WHERE user_id = ? AND title = ?", user_id, title)
+    flash("Note deleted Successfully !")
     return redirect("/all")
 
 @app.route("/edit", methods=["GET","POST"])
@@ -168,7 +171,8 @@ def edit():
         note_id = row[0]["note_id"]
         db.execute("UPDATE notes SET title = ?, label = ?, description = ? WHERE note_id = ? AND user_id = ?", new_title, new_label, new_description, note_id, user_id)
         db.execute("INSERT INTO timeline(note_id, user_id, modification) VALUES (?, ?, ?)", note_id, user_id, "edited")
-        return redirect("/")
+        flash("Note edited Successfully")
+        return redirect("/all")
 
     else:
         titles = db.execute("SELECT title FROM notes WHERE user_id = ?", user_id)
@@ -198,6 +202,7 @@ def change():
 
         new_hash = generate_password_hash(new_password)
         db.execute("UPDATE users SET hash = ? WHERE user_id = ?", new_hash, user_id)
+        flash("Password change successful !")
         return redirect("/")
 
     else:
