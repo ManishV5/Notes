@@ -185,18 +185,15 @@ def change():
         old_password = request.form.get("old-password")
         row = db.execute("SELECT hash FROM users WHERE user_id = ?", user_id)
         hash = row[0]["hash"]
-        print(hash)
-        print("---------------------------------------------------------------------")
-        print(generate_password_hash(old_password))
 
-        if hash != generate_password_hash(old_password):
-            return apology("Wrong existing password")
+        if not check_password_hash(hash, old_password):
+            return apology("wrong existing password")
 
         if not request.form.get("new-password"):
             return apology("must provide a new password")
-        new_password = request.get.form("new-password")
+        new_password = request.form.get("new-password")
 
-        if not request.form.get("new-password-confirmation") or new_password != request.get.form("new-password-confirmation"):
+        if not request.form.get("new-password-confirmation") or new_password != request.form.get("new-password-confirmation"):
             return apology("new password confirmation does not match new password")
 
         new_hash = generate_password_hash(new_password)
