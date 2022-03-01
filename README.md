@@ -1,15 +1,25 @@
-# Notes
+# Notes Web App
 #### Video Demo:  <URL HERE>
 #### Description:
-TODO
+    Notes is a flask based web application that allows users to register to have an account. Upon creating an account and logging in, each user can securly create, edit and store their own notes. All so created notes are private to just the user.
 
-    Reformat code
+    Additionally users can also search for notes (which is very helpful when a user has a large number of notes), view history of their previous modifications of notes and change password.
 
-    Basic structure:
-        login
-        logout
-        All
-        Add
-        Create
+    Technologies used: HTML5, CSS, Boostrap, Python3, Flask, SQLite3
 
-    Publish
+
+### Instaling and Running:
+    This project requires dependencies mentioned in requirements.txt file.
+    Ensure your system has flask, flask-session, cs50 python library, sqlite3 database and requests python module installed.
+    Upon installing the all dependencies. Using command flask-run in VSCode will auto-forward a port and provide a link through which one can access the application.
+
+### Directory Structure
+    flask_session/
+    app.py
+    helpers.py
+    notes.db
+    requirements.db
+    static/
+    templates/
+
+    flask_session
