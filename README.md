@@ -1,5 +1,5 @@
 # Notes Web App
-#### Video Demo:  <URL HERE>
+#### Video Demo:  <https://youtu.be/DrGtt3T42YE>
 #### Description:
     
 Notes is a flask based web application that allows users to make notes. Users need to register to have an account. Upon creating an account and logging in, each user can securly create, edit and store their own notes. All so created notes are private to just the user.
@@ -13,7 +13,7 @@ Technologies used: HTML5, CSS, Boostrap, Python3, Flask, SQLite3
     
 This project requires dependencies mentioned in requirements.txt file.
 Ensure your system has flask, flask-session, cs50 python library, sqlite3 database and requests python module installed.
-Upon installing the all dependencies. Using command flask-run in VSCode will auto-forward a port and provide a link through which one can access the application.
+Upon installing the all dependencies. Using command `flask run` in VSCode will auto-forward a port and provide a link through which one can access the application.
 
 ### Directory Structure
 
