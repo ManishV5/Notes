@@ -1,19 +1,22 @@
 # Notes Web App
 #### Video Demo:  <URL HERE>
 #### Description:
-    Notes is a flask based web application that allows users to register to have an account. Upon creating an account and logging in, each user can securly create, edit and store their own notes. All so created notes are private to just the user.
+    
+Notes is a flask based web application that allows users to make notes. Users need to register to have an account. Upon creating an account and logging in, each user can securly create, edit and store their own notes. All so created notes are private to just the user.
 
-    Additionally users can also search for notes (which is very helpful when a user has a large number of notes), view history of their previous modifications of notes and change password.
+Additionally users can also search for notes (which is very helpful when one has a large number of notes), view history of their previous changes to various notes and change password.
 
-    Technologies used: HTML5, CSS, Boostrap, Python3, Flask, SQLite3
+Technologies used: HTML5, CSS, Boostrap, Python3, Flask, SQLite3
 
 
 ### Instaling and Running:
-    This project requires dependencies mentioned in requirements.txt file.
-    Ensure your system has flask, flask-session, cs50 python library, sqlite3 database and requests python module installed.
-    Upon installing the all dependencies. Using command flask-run in VSCode will auto-forward a port and provide a link through which one can access the application.
+    
+This project requires dependencies mentioned in requirements.txt file.
+Ensure your system has flask, flask-session, cs50 python library, sqlite3 database and requests python module installed.
+Upon installing the all dependencies. Using command flask-run in VSCode will auto-forward a port and provide a link through which one can access the application.
 
 ### Directory Structure
+
     flask_session/
     app.py
     helpers.py
@@ -22,27 +25,27 @@
     static/
     templates/
 
-    flask_session/ - Directory stores all session information locally
+- flask_session/ - This directory stores all session information locally
 
-    app.py - flask based python backend for the web app. It provides and handles all the backend function of the web application. From registering, authenticating user, to accessing the notes database, creating, reading, updating and modifying entires as necessary.
+- app.py - Flask based python backend for the web app. It provides and handles all the backend function of the web application. From registering, authenticating user, to accessing the notes database, creating, reading, updating and modifying entires as necessary.
 
-    helpers.py - python file containing additional functions that are imported and used in the main file.
+- helpers.py - Python file containing additional functions that are imported and used in the main file.
 
-    notes.db - SQLite3 based database used to store all the data
+- notes.db - SQLite3 based database used to store all the data
 
-    requirements.txt - Text file that lists all the prerequistes for running the web app
+- requirements.txt - Text file that lists all the prerequistes for running the web app
 
-    static/ - contains static component for the web app (i.e.. css/js files)
+- static/ - Contains static component for the web app (i.e.. css/js files)
 
-    templates/ - contains all html file for the web applications
-        all.html : shows list of all the notes stored in the database
-        apology.html : returns an error message to used
-        change_password.html : landing page for user for changing password
-        edit.html : page allowing user to modify existing notes
-        history.html : history of all changes made to notes
-        layout.html : basic html file that is used to render all other html files
-        login.html : login page
-        new.html : landing page for user creating new note
-        register.html : registration page
-        search.html : landing page for user to search through all the notes
-        search_result.html : renders results of the user search through all the notes
+- templates/ - Contains all html file for the web applications
+   - all.html : shows list of all the notes stored in the database
+   - apology.html : returns an error message to used
+   - change_password.html : landing page for user for changing password
+   - edit.html : html page that allows user to modify existing notes
+   - history.html : history of all changes made to notes
+   - layout.html : basic html file that is used to render all other html files
+   - login.html : login page
+   - new.html : landing page for the user when creating a new note
+   - register.html : registration page
+   - search.html : landing page for the user to search through all the notes
+   - search_result.html : renders results of the users search through all the notes
