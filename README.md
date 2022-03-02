@@ -13,7 +13,7 @@ Technologies used: HTML5, CSS, Boostrap, Python3, Flask, SQLite3
     
 This project requires dependencies mentioned in requirements.txt file.
 Ensure your system has flask, flask-session, cs50 python library, sqlite3 database and requests python module installed.
-Upon installing the all dependencies. Using command `flask run` in VSCode will auto-forward a port and provide a link through which one can access the application.
+Upon installing all the dependencies. Using command `flask run` in VSCode will auto-forward a port and provide a link through which one can access the application.
 
 ### Directory Structure
 
@@ -39,7 +39,7 @@ Upon installing the all dependencies. Using command `flask run` in VSCode will a
 
 - templates/ - Contains all html file for the web applications
    - all.html : shows list of all the notes stored in the database
-   - apology.html : returns an error message to used
+   - apology.html : returns an error message to user
    - change_password.html : landing page for user for changing password
    - edit.html : html page that allows user to modify existing notes
    - history.html : history of all changes made to notes
