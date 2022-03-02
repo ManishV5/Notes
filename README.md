@@ -18,8 +18,31 @@
     app.py
     helpers.py
     notes.db
-    requirements.db
+    requirements.txt
     static/
     templates/
 
-    flask_session
+    flask_session/ - Directory stores all session information locally
+
+    app.py - flask based python backend for the web app. It provides and handles all the backend function of the web application. From registering, authenticating user, to accessing the notes database, creating, reading, updating and modifying entires as necessary.
+
+    helpers.py - python file containing additional functions that are imported and used in the main file.
+
+    notes.db - SQLite3 based database used to store all the data
+
+    requirements.txt - Text file that lists all the prerequistes for running the web app
+
+    static/ - contains static component for the web app (i.e.. css/js files)
+
+    templates/ - contains all html file for the web applications
+        all.html : shows list of all the notes stored in the database
+        apology.html : returns an error message to used
+        change_password.html : landing page for user for changing password
+        edit.html : page allowing user to modify existing notes
+        history.html : history of all changes made to notes
+        layout.html : basic html file that is used to render all other html files
+        login.html : login page
+        new.html : landing page for user creating new note
+        register.html : registration page
+        search.html : landing page for user to search through all the notes
+        search_result.html : renders results of the user search through all the notes
